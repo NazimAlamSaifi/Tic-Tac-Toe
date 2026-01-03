@@ -6,11 +6,11 @@ class TicTacToe
   ]
 
   def display_board(board)
-    puts " #{board[0]} | #{board[1]} | #{board[2]} "
-    puts "---+---+---"
-    puts " #{board[3]} | #{board[4]} | #{board[5]} "
-    puts "---+---+---"
-    puts " #{board[6]} | #{board[7]} | #{board[8]} "
+    " #{board[0]} | #{board[1]} | #{board[2]} \n" \
+    "---+---+---\n" \
+    " #{board[3]} | #{board[4]} | #{board[5]} \n" \
+    "---+---+---\n" \
+    " #{board[6]} | #{board[7]} | #{board[8]} "
   end
 
   def winner?(board, player)
@@ -23,7 +23,7 @@ class TicTacToe
     moves = 0
 
     while moves < 9
-      display_board(board)
+      puts display_board(board)
       puts "Player #{current_player}, choose a position (1-9): "
       move = gets.chomp.to_i - 1
 
@@ -32,7 +32,7 @@ class TicTacToe
         moves += 1
 
         if winner?(board, current_player)
-          display_board(board)
+          puts display_board(board)
           puts "Player #{current_player} wins!"
           return
         end
@@ -42,13 +42,7 @@ class TicTacToe
         puts "Invalid move! Try again."
       end
     end
-    display_board(board)
+    puts display_board(board)
     puts "It's a draw! No spaces left."
   end
 end
-
-
-
-game = TicTacToe.new
-game.play
-
